@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Reservation
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script(src='/javascripts/reservation.js')
+  body
+    .container
+      .row
+       .col-md-4
+         h1 Prochain :
+       .col-md-6#one
+      .row
+       .col-md-4
+        h2 Suivants :
+       #suite.col-md-6
+    script.
+      view();
+      setInterval(function(){view()},5000);

@@ -1,0 +1,79 @@
+doctype html
+html
+  head
+    title Reservation
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
+    script(src='/javascripts/reservation.js')
+  body
+      .container
+        .row
+          h2 Réservation Croc
+        .row
+          .col-lg-2
+            input(name="nameCroc", type="text", placeholder="Nom")
+            br
+            br
+            select(name="menu", onchange="afficheMenu()")
+              option(value="menu") Menu 
+              option(value="croc") Simple Croc
+              option(value="choco") Croc choco
+          .col-lg-4       
+            #commande
+              #croc1 Croc 1 : 
+                select(name='pain1')
+                  option(value='nature') Nature
+                  option(value='complet') Complet 
+                select(name='viande1')
+                  option(value='jambon') Jambon
+                  option(value='poulet') Poulet
+                label Tomate 
+                  input(name='tomate1', type='checkbox', value='true')
+              #croc2 Croc 2 : 
+                select(name='pain2')
+                  option(value='nature') Nature
+                  option(value='complet') Complet 
+                select(name='viande2')
+                  option(value='jambon') Jambon
+                  option(value='poulet') Poulet
+                label Tomate 
+                  input(name='tomate2', type='checkbox', value='true')
+               span 12h
+                 input(name="heure" type="number"  min=0 max=59 value=0)
+          .col-lg-2      
+            button(onclick="envoiCroc()") Réserver
+            #prixCroc 2,30€
+          .row
+            table.table.table-bordered.table-striped.table-condensed
+              caption 
+                h3 Liste des Crocs
+                button(onclick="rechargerListe()") Recharger
+                h4 Nombre de croc salé : 
+                span#sale
+                h4 Nombre de croc sucre : 
+                span#sucre
+              thead
+                tr
+                  th Nom
+                  th Croc 1
+                  th Croc 2
+                  th Heure
+                  th Prix
+                  th Payer
+                  th Servi
+                  th Annuler
+              tbody#listeCrocs
+              tfoot
+                tr
+                  th Nom
+                  th Croc 1
+                  th Croc 2
+                  th Heure
+                  th Prix
+                  th Payer
+                  th Servi
+                  th Annuler
