@@ -3,17 +3,17 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 /* GET gestion reservation page. */
-router.get('/reservation', function(req, res, next) {
+router.get('/', function(req, res, next) {
 	res.render('reservation', {});
 });
 
 /* GET gestion reservation view page. */
-router.get('/reservation/view', function(req, res, next) {
+router.get('/view', function(req, res, next) {
         res.render('reservation-view', {});
 });
 
 /* POST gestion reservation view . */
-router.post('/reservation/view', function(req, res, next) {
+router.post('/view', function(req, res, next) {
 	mongoose.model('reservationCroc')
 		.find({
 			servi : false
@@ -31,7 +31,7 @@ router.post('/reservation/view', function(req, res, next) {
 
 
 /* GET gestion reservation add page. */
-router.post('/reservation/add', function(req, res, next) { 
+router.post('/add', function(req, res, next) { 
 	var commande = JSON.parse(req.body.commande);
 		
 	if(typeof commande === "object"){
@@ -107,7 +107,7 @@ router.post('/reservation/add', function(req, res, next) {
 
 
 /* POST gestion reservation . */
-router.post('/reservation', function(req, res, next) {
+router.post('/', function(req, res, next) {
 	mongoose.model('reservationCroc')
 		.find(null)
 		.sort({
@@ -122,7 +122,7 @@ router.post('/reservation', function(req, res, next) {
 
 
 /* GET gestion reservation payer. */
-router.get('/reservation/payer', function(req, res, next) {
+router.get('/payer', function(req, res, next) {
 	mongoose.model('reservationCroc')
 		.update({
 			'_id' : req.query.id 
@@ -139,7 +139,7 @@ router.get('/reservation/payer', function(req, res, next) {
 });
 
 /* GET gestion reservation servi. */
-router.get('/reservation/servi', function(req, res, next) {
+router.get('/servi', function(req, res, next) {
 	mongoose.model('reservationCroc')
 		.update({
 			'_id' : req.query.id
@@ -156,7 +156,7 @@ router.get('/reservation/servi', function(req, res, next) {
 });
 
 /* GET gestion reservation annuler. */
-router.get('/reservation/annuler', function(req, res, next) {
+router.get('/annuler', function(req, res, next) {
 	mongoose.model('reservationCroc')
 		.remove({
 			'_id' : req.query.id

@@ -91,7 +91,7 @@ function envoiCroc() {
 			rechargerListe();
 		}
 	}
-	xhr.open("POST", "/reservation/add", true);
+	xhr.open("POST", "/add", true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	commande = JSON.stringify(commande);
 	console.log(commande);
@@ -194,7 +194,7 @@ function rechargerListe() {
 			$('#sucre').text(nbSucre);
 		}
 	}
-	xhr.open("POST", "/reservation", true);
+	xhr.open("POST", "/", true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.send("");
 }
@@ -206,7 +206,7 @@ function payer(id) {
 			rechargerListe();
 		}
 	}
-	xhr.open("GET","/reservation/payer?id="+id);
+	xhr.open("GET","/payer?id="+id);
 	xhr.send(null);
 }
 function servi(id) {
@@ -216,7 +216,7 @@ function servi(id) {
 			rechargerListe();
 		}
 	}
-	xhr.open("GET","/reservation/servi?id="+id);
+	xhr.open("GET","/servi?id="+id);
 	xhr.send(null);
 }
 
@@ -227,7 +227,7 @@ function annuler(id) {
 			rechargerListe();
 		}
 	}
-	xhr.open("GET","/reservation/annuler?id="+id);
+	xhr.open("GET","/annuler?id="+id);
 	xhr.send(null);
 }
 function normaliseMinutes(minutes) {
@@ -386,7 +386,7 @@ function view(){
 			}}
 		}
 	}
-	xhr.open("POST", "/reservation/view", true);
+	xhr.open("POST", "/view", true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.send("");
 }
