@@ -1,31 +1,41 @@
 function afficheMenu(){
 	var $menu = $('[name=menu]:checked').val();
 	if ( $menu == 'menu'){
-		$('#commande').html('<div id="croc1"> Croc 1 : \
- 		<input type="radio" id="nature1" name="pain1" value="nature" checked />\
-		<label for="nature1">Nature</label>\
-		<input type="radio" id="complet1" name="pain1" value="complet" />\
-		<label for="complet1">Complet</label>\
-		<input type="radio" id="jambon1" name="viande1" value="jambon" checked />\
-		<label for="jambon1">Jambon</label>\
-		<input type="radio" id="poulet1" name="viande1" value="poulet" />\
-		<label for="poulet1">Poulet</label>\
-		<label> Tomate \
-			<input name="tomate1" type="checkbox" value="true"/>\
-		</label>\
+		$('#commande').html('Croc 1 :<div id="croc1">\
+		<div class="option">\
+ 			<input type="radio" id="nature1" name="pain1" value="nature" checked />\
+			<label for="nature1">Nature</label>\
+			<input type="radio" id="complet1" name="pain1" value="complet" />\
+			<label for="complet1">Complet</label>\
 		</div>\
-		<div id="croc2"> Croc 2 : \
-		<input type="radio" id="nature2" name="pain2" value="nature" checked />\
-		<label for="nature2">Nature</label>\
-		<input type="radio" id="complet2" name="pain2" value="complet" />\
-		<label for="complet2">Complet</label>\
-		<input type="radio" id="jambon2" name="viande2" value="jambon" checked />\
-		<label for="jambon2">Jambon</label>\
-		<input type="radio" id="poulet2" name="viande2" value="poulet" />\
-		<label for="poulet2">Poulet</label>\
-		<label> Tomate \
-		<input name="tomate2" type="checkbox" value="true"/>\
-		</label>\
+		<div class="option">\
+			<input type="radio" id="jambon1" name="viande1" value="jambon" checked />\
+			<label for="jambon1">Jambon</label>\
+			<input type="radio" id="poulet1" name="viande1" value="poulet" />\
+			<label for="poulet1">Poulet</label>\
+		<div/>\
+		<div class="option">\
+			<input id="tomate1" name="tomate1" type="checkbox" value="true"/>\
+			<label for="tomate1"> Tomate </label>\
+		</div>\
+		</div>\
+		Croc 2 :<div id="croc2">\
+		<div class="option">\
+			<input type="radio" id="nature2" name="pain2" value="nature" checked />\
+			<label for="nature2">Nature</label>\
+			<input type="radio" id="complet2" name="pain2" value="complet" />\
+			<label for="complet2">Complet</label>\
+		</div>\
+		<div class="option">\
+			<input type="radio" id="jambon2" name="viande2" value="jambon" checked />\
+			<label for="jambon2">Jambon</label>\
+			<input type="radio" id="poulet2" name="viande2" value="poulet" />\
+			<label for="poulet2">Poulet</label>\
+		<div/>\
+                <div class="option">\
+			<input id="tomate2" name="tomate2" type="checkbox" value="true"/>\
+			<label for="tomate2"> Tomate </label>\
+		</div>\
 		</div>\
 		<div>12h<input name="heure" type="number"  min=0 max=59 value=0></div>');
 		
@@ -33,26 +43,30 @@ function afficheMenu(){
 	}
 	else if ( $menu == 'croc'){
 		$('#commande').html('\
-		<input type="radio" id="nature" name="pain" value="nature" checked />\
-                <label for="nature">Nature</label>\
-                <input type="radio" id="complet" name="pain" value="complet" />\
-                <label for="complet">Complet</label>\
-                <input type="radio" id="jambon" name="viande" value="jambon" checked />\
-                <label for="jambon">Jambon</label>\
-                <input type="radio" id="poulet" name="viande" value="poulet" />\
-                <label for="poulet">Poulet</label> \
-		<label> Tomate \
-		  <input name="tomate" type="checkbox" value="true"/>\
-		</label>\
+		<span>\
+			<input type="radio" id="nature" name="pain" value="nature" checked />\
+                	<label for="nature">Nature</label>\
+                	<input type="radio" id="complet" name="pain" value="complet" />\
+                	<label for="complet">Complet</label>\
+		</span><br/>\
+		<span>\
+                	<input type="radio" id="jambon" name="viande" value="jambon" checked />\
+                	<label for="jambon">Jambon</label>\
+                	<input type="radio" id="poulet" name="viande" value="poulet" />\
+                	<label for="poulet">Poulet</label>\
+		</span><br/>\
+		<span>\
+			<input id="tomate" name="tomate" type="checkbox" value="true"/>\
+			<label for="tomate" > Tomate </label>\
+		</span>\
 		<div>12h<input name="heure" type="number"  min=0 max=59 value=0></div>');
 		$('#prixCroc').text('1,00€');
 	}
 	else {
-		$('#commande').html('<label> Banane \
-		  <input name="banane" type="checkbox" value="true"/>\
-		</label><label> Poire \
-		  <input name="poire" type="checkbox" value="true"/>\
-		</label>');
+		$('#commande').html('<input id="banane" name="banane" type="checkbox" value="true"/>\
+		<label for="banane"> Banane </label>\
+		<input id="poire" name="poire" type="checkbox" value="true"/>\
+		<label for="poire" > Poire </label>');
 		$('#prixCroc').text('0,50€');
 	}
 }
