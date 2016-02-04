@@ -15,16 +15,15 @@ html
         .row
           h2 Réservation Croc
         .row
-          .col-lg-2
+          .col-lg-2(id="crocs-menu")
             input(name="nameCroc", type="text", placeholder="Nom")
-            br
-            br
-            input(value="menu" type="radio" name="menu" id="menu" onchange="afficheMenu()" checked)  
-            label(for="menu") Menu
-            input(value="croc" type="radio" name="menu" id="croc" onchange="afficheMenu()")
-            label(for="croc") Simple Croc
-            input(value="choco" type="radio" name="menu" id="choco" onchange="afficheMenu()") 
-            label(for="choco") Croc choco
+            div(id="crocs-type")
+              input(value="menu" type="radio" name="menu" id="menu" onchange="afficheMenu()" checked)  
+              label(for="menu") Menu
+              input(value="croc" type="radio" name="menu" id="croc" onchange="afficheMenu()")
+              label(for="croc") Simple Croc
+              input(value="choco" type="radio" name="menu" id="choco" onchange="afficheMenu()") 
+              label(for="choco") Croc choco
           .col-lg-4       
             #commande
           .col-lg-2      
@@ -36,9 +35,9 @@ html
                 h3 Liste des Crocs
                 button(onclick="rechargerListe()") Recharger
                 h4 Nombre de croc salé : 
-                span#sale
+                  span#sale
                 h4 Nombre de croc sucre : 
-                span#sucre
+                  span#sucre
               thead
                 tr
                   th Nom
