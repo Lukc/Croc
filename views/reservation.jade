@@ -9,6 +9,7 @@ html
     link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js')
     script(src='/javascripts/reservation.js')
+    link(rel="stylesheet", href="/css/reservation.css")
   body
       .container
         .row
@@ -18,32 +19,14 @@ html
             input(name="nameCroc", type="text", placeholder="Nom")
             br
             br
-            select(name="menu", onchange="afficheMenu()")
-              option(value="menu") Menu 
-              option(value="croc") Simple Croc
-              option(value="choco") Croc choco
+            input(value="menu" type="radio" name="menu" id="menu" onchange="afficheMenu()" checked)  
+            label(for="menu") Menu
+            input(value="croc" type="radio" name="menu" id="croc" onchange="afficheMenu()")
+            label(for="croc") Simple Croc
+            input(value="choco" type="radio" name="menu" id="choco" onchange="afficheMenu()") 
+            label(for="choco") Croc choco
           .col-lg-4       
             #commande
-              #croc1 Croc 1 : 
-                select(name='pain1')
-                  option(value='nature') Nature
-                  option(value='complet') Complet 
-                select(name='viande1')
-                  option(value='jambon') Jambon
-                  option(value='poulet') Poulet
-                label Tomate 
-                  input(name='tomate1', type='checkbox', value='true')
-              #croc2 Croc 2 : 
-                select(name='pain2')
-                  option(value='nature') Nature
-                  option(value='complet') Complet 
-                select(name='viande2')
-                  option(value='jambon') Jambon
-                  option(value='poulet') Poulet
-                label Tomate 
-                  input(name='tomate2', type='checkbox', value='true')
-               span 12h
-                 input(name="heure" type="number"  min=0 max=59 value=0)
           .col-lg-2      
             button(onclick="envoiCroc()") Réserver
             #prixCroc 2,30€
@@ -77,3 +60,6 @@ html
                   th Payer
                   th Servi
                   th Annuler
+    script.
+      afficheMenu();
+      rechargerListe();

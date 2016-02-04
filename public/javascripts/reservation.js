@@ -1,44 +1,46 @@
 function afficheMenu(){
-	if ($('[name=menu]').val() == 'menu'){
+	var $menu = $('[name=menu]:checked').val();
+	if ( $menu == 'menu'){
 		$('#commande').html('<div id="croc1"> Croc 1 : \
-		<select name="pain1">\
-		  <option value="nature" >Nature</option>\
-		  <option value="complet" >Complet</option>\
-		</select>\
-		<select name="viande1">\
-		  <option value="jambon" >Jambon</option>\
-		  <option value="poulet" >Poulet</option>\
-		</select>\
+ 		<input type="radio" id="nature1" name="pain1" value="nature" checked />\
+		<label for="nature1">Nature</label>\
+		<input type="radio" id="complet1" name="pain1" value="complet" />\
+		<label for="complet1">Complet</label>\
+		<input type="radio" id="jambon1" name="viande1" value="jambon" checked />\
+		<label for="jambon1">Jambon</label>\
+		<input type="radio" id="poulet1" name="viande1" value="poulet" />\
+		<label for="poulet1">Poulet</label>\
 		<label> Tomate \
-		  <input name="tomate1" type="checkbox" value="true"/>\
+			<input name="tomate1" type="checkbox" value="true"/>\
 		</label>\
 		</div>\
 		<div id="croc2"> Croc 2 : \
-		<select name="pain2">\
-		  <option value="nature" >Nature</option>\
-		  <option value="complet" >Complet</option>\
-		</select>\
-		<select name="viande2">\
-		  <option value="jambon" >Jambon</option>\
-		  <option value="poulet" >Poulet</option>\
-		</select>\
+		<input type="radio" id="nature2" name="pain2" value="nature" checked />\
+		<label for="nature2">Nature</label>\
+		<input type="radio" id="complet2" name="pain2" value="complet" />\
+		<label for="complet2">Complet</label>\
+		<input type="radio" id="jambon2" name="viande2" value="jambon" checked />\
+		<label for="jambon2">Jambon</label>\
+		<input type="radio" id="poulet2" name="viande2" value="poulet" />\
+		<label for="poulet2">Poulet</label>\
 		<label> Tomate \
-		  <input name="tomate2" type="checkbox" value="true"/>\
+		<input name="tomate2" type="checkbox" value="true"/>\
 		</label>\
 		</div>\
 		<div>12h<input name="heure" type="number"  min=0 max=59 value=0></div>');
 		
 		$('#prixCroc').text('2,30€');
 	}
-	else if ($('[name=menu]').val() == 'croc'){
-		$('#commande').html('<select name="pain">\
-		  <option value="nature" >Nature</option>\
-		  <option value="complet" >Complet</option>\
-		</select>\
-		<select name="viande">\
-		  <option value="jambon" >Jambon</option>\
-		  <option value="poulet" >poulet</option>\
-		  </select>\
+	else if ( $menu == 'croc'){
+		$('#commande').html('\
+		<input type="radio" id="nature" name="pain" value="nature" checked />\
+                <label for="nature">Nature</label>\
+                <input type="radio" id="complet" name="pain" value="complet" />\
+                <label for="complet">Complet</label>\
+                <input type="radio" id="jambon" name="viande" value="jambon" checked />\
+                <label for="jambon">Jambon</label>\
+                <input type="radio" id="poulet" name="viande" value="poulet" />\
+                <label for="poulet">Poulet</label> \
 		<label> Tomate \
 		  <input name="tomate" type="checkbox" value="true"/>\
 		</label>\
@@ -59,24 +61,24 @@ function envoiCroc() {
 	commande ={};
 	if ($('[name=nameCroc]').val() != '')
 		commande.name = $('[name=nameCroc]').val();
-	if ($('[name=menu]').val() == 'menu'){
+	if ($('[name=menu]:checked').val() == 'menu'){
 		commande.menu = 0;
 		commande.croc1 = {
-			nature : $('[name=pain1]').val() == 'nature',
-			jambon : $('[name=viande1]').val() == 'jambon',
+			nature : $('[name=pain1]:checked').val() == 'nature',
+			jambon : $('[name=viande1]:checked').val() == 'jambon',
 			tomate : $('[name=tomate1]').is(':checked')
 		};
 		commande.croc2 = {
-			nature : $('[name=pain2]').val() == 'nature',
-			jambon : $('[name=viande2]').val() == 'jambon',
+			nature : $('[name=pain2]:checked').val() == 'nature',
+			jambon : $('[name=viande2]:checked').val() == 'jambon',
 			tomate : $('[name=tomate2]').is(':checked')
 		};
 		commande.heure = $('[name=heure]').val();
 	}
-	else if ($('[name=menu]').val() == 'croc'){
+	else if ($('[name=menu]:checked').val() == 'croc'){
 		commande.menu = 1;
-		commande.nature = $('[name=pain]').val() == 'nature', 
-		commande.jambon = $('[name=viande]').val() == 'jambon';
+		commande.nature = $('[name=pain]:checked').val() == 'nature', 
+		commande.jambon = $('[name=viande]:checked').val() == 'jambon';
 		commande.tomate = $('[name=tomate]').is(':checked');
 		commande.heure = $('[name=heure]').val();
 	}
